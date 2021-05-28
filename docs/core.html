@@ -276,7 +276,7 @@ converting /work/pyleftpad/index.ipynb to README.md
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h2 id="Push-to-git">Push to git<a class="anchor-link" href="#Push-to-git"> </a></h2><p>At this point, this would be the end of the nbdev notebook, but for the sake of presentation within 1 notebook, let's see what we'd do next to publish this package.</p>
+<h2 id="Next-steps">Next steps<a class="anchor-link" href="#Next-steps"> </a></h2><p>At this point, this would be the end of the nbdev notebook, but for the sake of presentation within 1 notebook, let's see what we'd do next to publish this package.</p>
 <p>First we want to run <code>nbdev_install_git_hooks</code>. This would be sufficient to run once, after first setting up your project.</p>
 
 </div>
@@ -372,8 +372,8 @@ build
 dist
 pyleftpad.egg-info
 Use -f if you really want to add them.
-[master 6db3fc8] Committing our new left-pad library
- 4 files changed, 16 insertions(+), 23 deletions(-)
+[master 05fdcf1] Committing our new left-pad library
+ 3 files changed, 13 insertions(+), 13 deletions(-)
 </pre>
 </div>
 </div>
@@ -411,15 +411,15 @@ Use -f if you really want to add them.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Enumerating objects: 15, done.
-Counting objects: 100% (15/15), done.
+<pre>Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
 Delta compression using up to 4 threads
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (8/8), 1.08 KiB | 1.08 MiB/s, done.
-Total 8 (delta 6), reused 0 (delta 0)
-remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 902 bytes | 902.00 KiB/s, done.
+Total 6 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 5 local objects.
 To https://github.com/the21st/pyleftpad.git
-   8195fd6..6db3fc8  master -&gt; master
+   6db3fc8..05fdcf1  master -&gt; master
 </pre>
 </div>
 </div>
@@ -430,6 +430,21 @@ To https://github.com/the21st/pyleftpad.git
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installing-the-package">Installing the package<a class="anchor-link" href="#Installing-the-package"> </a></h2><p>After it's pushed, it's ready to be used. You can either set up a pypi account and run <code>make pypi</code> from the terminal or you can install the package directly from github with <code>pip install git+git://github.com/the21st/pyleftpad</code>.</p>
+<p>See <a href="https://deepnote.com/@the21st/Installing-a-nbdev-package-directly-from-github-xWvR2CT7Sy-Rx9JJDlQoIw">an example project</a> that installs the package directly from github.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Browsing-the-docs">Browsing the docs<a class="anchor-link" href="#Browsing-the-docs"> </a></h2><p>And after enabling the Github Pages from the repo settings, our package docs are live at <a href="https://the21st.github.io/pyleftpad/">https://the21st.github.io/pyleftpad/</a>, see them inlined here:</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -437,10 +452,34 @@ To https://github.com/the21st/pyleftpad.git
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;https://the21st.github.io/pyleftpad/core.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;400&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+        <iframe
+            width="100%"
+            height="400"
+            src="https://the21st.github.io/pyleftpad/core.html"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+        
+</div>
+
+</div>
+
 </div>
 </div>
 
