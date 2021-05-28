@@ -1,13 +1,13 @@
 ---
 
-title: module name here
+title: pyleftpad
 
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "API details."
-description: "API details."
+summary: "Implements a function that pads strings with whitespace from the left."
+description: "Implements a function that pads strings with whitespace from the left."
 nb_path: "00_core.ipynb"
 ---
 <!--
@@ -83,9 +83,9 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="say_hello" class="doc_header"><code>say_hello</code><a href="https://github.com/{user}/pyleftpad/tree/master/pyleftpad/core.py#L6" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>say_hello</code>(<strong><code>to</code></strong>)</p>
+<h4 id="left_pad" class="doc_header"><code>left_pad</code><a href="https://github.com/{user}/pyleftpad/tree/master/pyleftpad/core.py#L6" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>left_pad</code>(<strong><code>padded_string</code></strong>, <strong><code>padding</code></strong>)</p>
 </blockquote>
-<p>Say hello to somebody</p>
+<p>Pads string with spaces from the left so that its total width equals padding</p>
 
 </div>
 
@@ -111,7 +111,7 @@ nb_path: "00_core.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Sylvain&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">left_pad</span><span class="p">(</span><span class="s2">&quot;nbdev&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -126,7 +126,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;Hello Sylvain!&#39;</pre>
+<pre>&#39;     nbdev&#39;</pre>
 </div>
 
 </div>
@@ -137,6 +137,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's include some unit tests:</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -144,7 +151,7 @@ nb_path: "00_core.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Jeremy&quot;</span><span class="p">)</span><span class="o">==</span><span class="s2">&quot;Hello Jeremy!&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">left_pad</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">==</span><span class="s2">&quot;hello&quot;</span>
 </pre></div>
 
     </div>
@@ -161,7 +168,48 @@ nb_path: "00_core.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nbdev.export</span> <span class="kn">import</span> <span class="n">notebook2script</span><span class="p">;</span> <span class="n">notebook2script</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">left_pad</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">==</span><span class="s2">&quot;hello&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">left_pad</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span><span class="o">==</span><span class="s2">&quot; hello&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And now we can run <code>nbdev_build_lib</code> to build the project files:</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nbdev.export2html</span> <span class="kn">import</span> <span class="n">nbdev_build_lib</span><span class="p">;</span> <span class="n">nbdev_build_lib</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -186,6 +234,13 @@ Converted index.ipynb.
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And build the project's docs with <code>nbdev_build_docs</code>:</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -219,6 +274,15 @@ converting /work/pyleftpad/index.ipynb to README.md
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Push-to-git">Push to git<a class="anchor-link" href="#Push-to-git"> </a></h2><p>At this point, this would be the end of the nbdev notebook, but for the sake of presentation within 1 notebook, let's see what we'd do next to publish this package.</p>
+<p>First we want to run <code>nbdev_install_git_hooks</code>. This would be sufficient to run once, after first setting up your project.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -251,6 +315,13 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then we need to configure git username and email, because Deepnote might not have that info.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -269,6 +340,13 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And then just stage all files and commit</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -290,9 +368,8 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[master e42269d] Committing our new left-pad library
- 5 files changed, 321 insertions(+), 624 deletions(-)
- rewrite docs/core.html (67%)
+<pre>[master db6d47b] Committing our new left-pad library
+ 5 files changed, 169 insertions(+), 46 deletions(-)
 </pre>
 </div>
 </div>
@@ -303,6 +380,13 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, push to origin</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -327,11 +411,119 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 Counting objects: 100% (15/15), done.
 Delta compression using up to 4 threads
 Compressing objects: 100% (8/8), done.
-Writing objects: 100% (8/8), 925 bytes | 925.00 KiB/s, done.
+Writing objects: 100% (8/8), 2.05 KiB | 2.05 MiB/s, done.
 Total 8 (delta 7), reused 0 (delta 0)
 remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
 To https://github.com/the21st/pyleftpad.git
-   7f7f175..e42269d  master -&gt; master
+   e42269d..db6d47b  master -&gt; master
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>make pypi
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>rm -rf dist
+python setup.py sdist bdist_wheel
+running sdist
+running egg_info
+creating pyleftpad.egg-info
+writing pyleftpad.egg-info/PKG-INFO
+writing dependency_links to pyleftpad.egg-info/dependency_links.txt
+writing entry points to pyleftpad.egg-info/entry_points.txt
+writing requirements to pyleftpad.egg-info/requires.txt
+writing top-level names to pyleftpad.egg-info/top_level.txt
+writing manifest file &#39;pyleftpad.egg-info/SOURCES.txt&#39;
+reading manifest file &#39;pyleftpad.egg-info/SOURCES.txt&#39;
+reading manifest template &#39;MANIFEST.in&#39;
+warning: no previously-included files matching &#39;__pycache__&#39; found under directory &#39;*&#39;
+adding license file &#39;LICENSE&#39;
+writing manifest file &#39;pyleftpad.egg-info/SOURCES.txt&#39;
+running check
+creating pyleftpad-0.0.1
+creating pyleftpad-0.0.1/pyleftpad
+creating pyleftpad-0.0.1/pyleftpad.egg-info
+copying files to pyleftpad-0.0.1...
+copying CONTRIBUTING.md -&gt; pyleftpad-0.0.1
+copying LICENSE -&gt; pyleftpad-0.0.1
+copying MANIFEST.in -&gt; pyleftpad-0.0.1
+copying README.md -&gt; pyleftpad-0.0.1
+copying settings.ini -&gt; pyleftpad-0.0.1
+copying setup.py -&gt; pyleftpad-0.0.1
+copying pyleftpad/__init__.py -&gt; pyleftpad-0.0.1/pyleftpad
+copying pyleftpad/_nbdev.py -&gt; pyleftpad-0.0.1/pyleftpad
+copying pyleftpad/core.py -&gt; pyleftpad-0.0.1/pyleftpad
+copying pyleftpad.egg-info/PKG-INFO -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
+copying pyleftpad.egg-info/SOURCES.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
+copying pyleftpad.egg-info/dependency_links.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
+copying pyleftpad.egg-info/entry_points.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
+copying pyleftpad.egg-info/not-zip-safe -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
+copying pyleftpad.egg-info/requires.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
+copying pyleftpad.egg-info/top_level.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
+Writing pyleftpad-0.0.1/setup.cfg
+creating dist
+Creating tar archive
+removing &#39;pyleftpad-0.0.1&#39; (and everything under it)
+running bdist_wheel
+running build
+running build_py
+creating build
+creating build/lib
+creating build/lib/pyleftpad
+copying pyleftpad/__init__.py -&gt; build/lib/pyleftpad
+copying pyleftpad/_nbdev.py -&gt; build/lib/pyleftpad
+copying pyleftpad/core.py -&gt; build/lib/pyleftpad
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/pyleftpad
+copying build/lib/pyleftpad/_nbdev.py -&gt; build/bdist.linux-x86_64/wheel/pyleftpad
+copying build/lib/pyleftpad/core.py -&gt; build/bdist.linux-x86_64/wheel/pyleftpad
+copying build/lib/pyleftpad/__init__.py -&gt; build/bdist.linux-x86_64/wheel/pyleftpad
+running install_egg_info
+Copying pyleftpad.egg-info to build/bdist.linux-x86_64/wheel/pyleftpad-0.0.1-py3.7.egg-info
+running install_scripts
+adding license file &#34;LICENSE&#34; (matched pattern &#34;LICEN[CS]E*&#34;)
+creating build/bdist.linux-x86_64/wheel/pyleftpad-0.0.1.dist-info/WHEEL
+creating &#39;dist/pyleftpad-0.0.1-py3-none-any.whl&#39; and adding &#39;build/bdist.linux-x86_64/wheel&#39; to it
+adding &#39;pyleftpad/__init__.py&#39;
+adding &#39;pyleftpad/_nbdev.py&#39;
+adding &#39;pyleftpad/core.py&#39;
+adding &#39;pyleftpad-0.0.1.dist-info/LICENSE&#39;
+adding &#39;pyleftpad-0.0.1.dist-info/METADATA&#39;
+adding &#39;pyleftpad-0.0.1.dist-info/WHEEL&#39;
+adding &#39;pyleftpad-0.0.1.dist-info/entry_points.txt&#39;
+adding &#39;pyleftpad-0.0.1.dist-info/top_level.txt&#39;
+adding &#39;pyleftpad-0.0.1.dist-info/RECORD&#39;
+removing build/bdist.linux-x86_64/wheel
+twine upload --repository pypi dist/*
+/bin/bash: twine: command not found
+make: *** [Makefile:31: pypi] Error 127
 </pre>
 </div>
 </div>
@@ -376,15 +568,6 @@ To https://github.com/the21st/pyleftpad.git
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=31041570-ef1a-415f-beea-b08a526f9fb6' target="_blank">
-{% include image.html alt="Created in deepnote.com" style="display:inline;max-height:16px;margin:0px;margin-right:7.5px;" file="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+" %} </img>
-Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></p>
-
-</div>
-</div>
-</div>
 </div>
  
 
