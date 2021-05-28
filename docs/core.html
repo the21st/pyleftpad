@@ -368,8 +368,19 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[master db6d47b] Committing our new left-pad library
- 5 files changed, 169 insertions(+), 46 deletions(-)
+<pre>The following paths are ignored by one of your .gitignore files:
+build
+dist
+pyleftpad.egg-info
+Use -f if you really want to add them.
+[master 9fffaf9] Committing our new left-pad library
+ 12 files changed, 561 insertions(+), 252 deletions(-)
+ create mode 100644 Makefile
+ rewrite README.md (98%)
+ create mode 100644 docs/_config.yml
+ create mode 100644 docs/_data/topnav.yml
+ rewrite docs/index.html (68%)
+ rewrite index.ipynb (78%)
 </pre>
 </div>
 </div>
@@ -407,144 +418,19 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Enumerating objects: 15, done.
-Counting objects: 100% (15/15), done.
+<pre>Enumerating objects: 32, done.
+Counting objects: 100% (32/32), done.
 Delta compression using up to 4 threads
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (8/8), 2.05 KiB | 2.05 MiB/s, done.
-Total 8 (delta 7), reused 0 (delta 0)
-remote: Resolving deltas: 100% (7/7), completed with 7 local objects.
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (18/18), 7.34 KiB | 3.67 MiB/s, done.
+Total 18 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
 To https://github.com/the21st/pyleftpad.git
-   e42269d..db6d47b  master -&gt; master
+   db6d47b..9fffaf9  master -&gt; master
 </pre>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>make pypi
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>rm -rf dist
-python setup.py sdist bdist_wheel
-running sdist
-running egg_info
-creating pyleftpad.egg-info
-writing pyleftpad.egg-info/PKG-INFO
-writing dependency_links to pyleftpad.egg-info/dependency_links.txt
-writing entry points to pyleftpad.egg-info/entry_points.txt
-writing requirements to pyleftpad.egg-info/requires.txt
-writing top-level names to pyleftpad.egg-info/top_level.txt
-writing manifest file &#39;pyleftpad.egg-info/SOURCES.txt&#39;
-reading manifest file &#39;pyleftpad.egg-info/SOURCES.txt&#39;
-reading manifest template &#39;MANIFEST.in&#39;
-warning: no previously-included files matching &#39;__pycache__&#39; found under directory &#39;*&#39;
-adding license file &#39;LICENSE&#39;
-writing manifest file &#39;pyleftpad.egg-info/SOURCES.txt&#39;
-running check
-creating pyleftpad-0.0.1
-creating pyleftpad-0.0.1/pyleftpad
-creating pyleftpad-0.0.1/pyleftpad.egg-info
-copying files to pyleftpad-0.0.1...
-copying CONTRIBUTING.md -&gt; pyleftpad-0.0.1
-copying LICENSE -&gt; pyleftpad-0.0.1
-copying MANIFEST.in -&gt; pyleftpad-0.0.1
-copying README.md -&gt; pyleftpad-0.0.1
-copying settings.ini -&gt; pyleftpad-0.0.1
-copying setup.py -&gt; pyleftpad-0.0.1
-copying pyleftpad/__init__.py -&gt; pyleftpad-0.0.1/pyleftpad
-copying pyleftpad/_nbdev.py -&gt; pyleftpad-0.0.1/pyleftpad
-copying pyleftpad/core.py -&gt; pyleftpad-0.0.1/pyleftpad
-copying pyleftpad.egg-info/PKG-INFO -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
-copying pyleftpad.egg-info/SOURCES.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
-copying pyleftpad.egg-info/dependency_links.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
-copying pyleftpad.egg-info/entry_points.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
-copying pyleftpad.egg-info/not-zip-safe -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
-copying pyleftpad.egg-info/requires.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
-copying pyleftpad.egg-info/top_level.txt -&gt; pyleftpad-0.0.1/pyleftpad.egg-info
-Writing pyleftpad-0.0.1/setup.cfg
-creating dist
-Creating tar archive
-removing &#39;pyleftpad-0.0.1&#39; (and everything under it)
-running bdist_wheel
-running build
-running build_py
-creating build
-creating build/lib
-creating build/lib/pyleftpad
-copying pyleftpad/__init__.py -&gt; build/lib/pyleftpad
-copying pyleftpad/_nbdev.py -&gt; build/lib/pyleftpad
-copying pyleftpad/core.py -&gt; build/lib/pyleftpad
-installing to build/bdist.linux-x86_64/wheel
-running install
-running install_lib
-creating build/bdist.linux-x86_64
-creating build/bdist.linux-x86_64/wheel
-creating build/bdist.linux-x86_64/wheel/pyleftpad
-copying build/lib/pyleftpad/_nbdev.py -&gt; build/bdist.linux-x86_64/wheel/pyleftpad
-copying build/lib/pyleftpad/core.py -&gt; build/bdist.linux-x86_64/wheel/pyleftpad
-copying build/lib/pyleftpad/__init__.py -&gt; build/bdist.linux-x86_64/wheel/pyleftpad
-running install_egg_info
-Copying pyleftpad.egg-info to build/bdist.linux-x86_64/wheel/pyleftpad-0.0.1-py3.7.egg-info
-running install_scripts
-adding license file &#34;LICENSE&#34; (matched pattern &#34;LICEN[CS]E*&#34;)
-creating build/bdist.linux-x86_64/wheel/pyleftpad-0.0.1.dist-info/WHEEL
-creating &#39;dist/pyleftpad-0.0.1-py3-none-any.whl&#39; and adding &#39;build/bdist.linux-x86_64/wheel&#39; to it
-adding &#39;pyleftpad/__init__.py&#39;
-adding &#39;pyleftpad/_nbdev.py&#39;
-adding &#39;pyleftpad/core.py&#39;
-adding &#39;pyleftpad-0.0.1.dist-info/LICENSE&#39;
-adding &#39;pyleftpad-0.0.1.dist-info/METADATA&#39;
-adding &#39;pyleftpad-0.0.1.dist-info/WHEEL&#39;
-adding &#39;pyleftpad-0.0.1.dist-info/entry_points.txt&#39;
-adding &#39;pyleftpad-0.0.1.dist-info/top_level.txt&#39;
-adding &#39;pyleftpad-0.0.1.dist-info/RECORD&#39;
-removing build/bdist.linux-x86_64/wheel
-twine upload --repository pypi dist/*
-/bin/bash: twine: command not found
-make: *** [Makefile:31: pypi] Error 127
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
 
