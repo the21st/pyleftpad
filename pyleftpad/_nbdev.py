@@ -6,8 +6,8 @@ index = {"left_pad": "00_core.ipynb"}
 
 modules = ["core.py"]
 
-doc_url = "https://{user}.github.io/pyleftpad/"
+doc_url = "https://the21st.github.io/pyleftpad/"
 
-git_url = "https://github.com/{user}/pyleftpad/tree/master/"
+git_url = "https://github.com/the21st/pyleftpad/tree/master/"
 
 def custom_doc_links(name): return None
