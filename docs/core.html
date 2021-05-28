@@ -34,9 +34,9 @@ nb_path: "00_core.ipynb"
 <h2 id="Set-up">Set up<a class="anchor-link" href="#Set-up"> </a></h2><ol>
 <li>Start by using the <code>nbdev_template</code> github template <a href="https://github.com/fastai/nbdev_template/generate">https://github.com/fastai/nbdev_template/generate</a> to create a new repo on github.</li>
 <li>Duplicate this <a target="_blank" href="https://deepnote.com/project/nbdev-empty-template-uZ8cxzfwRbmSkqW4HTJonw/">Deepnote nbdev template project</a>. It's set up with an environment that has <code>nbdev</code> preinstalled.</li>
-<li>Link the repo you created in step 1 using the github sidebar in your new project.</li>
-<li>Fill in the settings.ini file with your information. More info in the <a href="https://nbdev.fast.ai/tutorial.html#Edit-settings.ini">nbdev tutorial</a></li>
-<li>Open 00_core.ipynb in Deepnote and you can start coding. The notebook you're reading is actually a <code>00_core.ipynb</code> file in a nbdev project that was set up this way 🙂</li>
+<li>In this Deepnote project, link the GitHub repo you created in step 1 using the GitHub sidebar on the left.</li>
+<li>Fill in the <code>settings.ini</code> file with your information. More info in the <a href="https://nbdev.fast.ai/tutorial.html#Edit-settings.ini">nbdev tutorial</a></li>
+<li>Open <code>00_core.ipynb</code> in Deepnote and you can start coding. The notebook you're reading is actually a <code>00_core.ipynb</code> file in an nbdev project that was set up this way 🙂</li>
 </ol>
 
 </div>
@@ -44,50 +44,15 @@ nb_path: "00_core.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we can get to work, let's explore what a notebook in the <code>nbdev</code> world looks like!</p>
+<p>Now we can get to work! Let's explore what a notebook in the <code>nbdev</code> world looks like!</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/root/venv/lib/python3.7/site-packages&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
-<span class="kn">import</span> <span class="nn">nbconvert</span>
-<span class="n">nbconvert</span><span class="o">.</span><span class="n">__version__</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;5.6.1&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>nbdev</code> has special comments that convey information about how to build the package. This one means that the code in this notebook will be exported by default to a file <code>core.py</code>:</p>
+<p><code>nbdev</code> has special comments that convey information about how to build the package.</p>
+<p><code># default_exp core</code> means that the code in this notebook will be exported by default to a file <code>core.py</code>:</p>
 
 </div>
 </div>
@@ -113,6 +78,13 @@ nb_path: "00_core.ipynb"
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can see another one of the special nbdev comments, <code>#export</code> means that this cell will actually be exported to the <code>core.py</code> file and will become part of the package code.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -122,7 +94,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can see <a href="/pyleftpad/core.html#left_pad"><code>left_pad</code></a>'s html docs inside a notebook with <code>show_doc</code>:</p>
+<p>We can show <a href="/pyleftpad/core.html#left_pad"><code>left_pad</code></a>'s html docs inside a notebook with <code>show_doc</code>:</p>
 
 </div>
 </div>
@@ -154,7 +126,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can use this function like this:</p>
+<p>You can use this function like this.</p>
 
 </div>
 </div>
@@ -192,6 +164,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since the cell above doesn't have the <code># export</code> comment, this code won't be part of the package we're building. It only server as an example usage of that function inside this notebook, including the output. What a great way to document your code!</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's include some unit tests:</p>
@@ -337,38 +316,6 @@ converting /work/pyleftpad/index.ipynb to README.md
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbdev_install_git_hooks
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Executing: git config --local include.path ../.gitconfig
-Success: hooks are installed and repo&#39;s .gitconfig is now trusted
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Then we need to configure git username and email, because Deepnote might not have that info.</p>
@@ -376,24 +323,6 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>git config user.name <span class="s2">&quot;Simon Sotak&quot;</span>
-<span class="o">!</span>git config user.email <span class="s2">&quot;the21st@gmail.com&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>And then just stage all files and commit</p>
@@ -401,44 +330,6 @@ Success: hooks are installed and repo&#39;s .gitconfig is now trusted
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>git add *
-<span class="o">!</span>git commit -m <span class="s2">&quot;Committing our new left-pad library&quot;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>The following paths are ignored by one of your .gitignore files:
-build
-dist
-pyleftpad.egg-info
-Use -f if you really want to add them.
-[master b2e6cfe] Committing our new left-pad library
- 2 files changed, 76 insertions(+), 17 deletions(-)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, push to origin</p>
@@ -446,45 +337,13 @@ Use -f if you really want to add them.
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>git push origin master
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Enumerating objects: 9, done.
-Counting objects: 100% (9/9), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (5/5), done.
-Writing objects: 100% (5/5), 2.00 KiB | 2.00 MiB/s, done.
-Total 5 (delta 4), reused 0 (delta 0)
-remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
-To https://github.com/the21st/pyleftpad.git
-   05fdcf1..b2e6cfe  master -&gt; master
-</pre>
-</div>
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This repo is set up with GitHub actions in a way that it runs all notebooks after pushing new commits. If e.g. a unit test in a notebook doesn't pass, the GitHub actions continuous integration will report a failure. Neat 😎</p>
 
 </div>
 </div>
-
 </div>
-    {% endraw %}
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Installing-the-package">Installing the package<a class="anchor-link" href="#Installing-the-package"> </a></h3><p>After it's pushed, it's ready to be used. You can either set up a pypi account and run <code>make pypi</code> from the terminal or you can install the package directly from github with <code>pip install git+git://github.com/the21st/pyleftpad</code>.</p>
@@ -500,47 +359,6 @@ To https://github.com/the21st/pyleftpad.git
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
-<span class="n">IFrame</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s1">&#39;https://the21st.github.io/pyleftpad/core.html&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">&#39;100%&#39;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">&#39;400&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-
-        <iframe
-            width="100%"
-            height="400"
-            src="https://the21st.github.io/pyleftpad/core.html"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-        
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    {% endraw %}
-
 </div>
  
 
